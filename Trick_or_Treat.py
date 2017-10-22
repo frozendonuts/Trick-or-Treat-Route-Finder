@@ -147,7 +147,7 @@ for i in xrange(len(lines)):
         lines[i] = goodLines[1]
 
 
-stuff = ["""\n<div id="map_canvas" style="width: 50%; height: 100%;"></div>\n""", """<div style="Position: absolute; top:50px; left:700px;">\n""", '<p style="font-size:12px">' + directions + '</p>\n', """</div>\n"""]
+stuff = ["""\n<div id="map_canvas" style="width: 50%; height: 100%;"></div>\n""", """<div style="Position: absolute; top:50px; left:700px;">\n""", '<p style="font-size:12px"; font-family:helvetica;>' + directions + '</p>\n', """</div>\n"""]
 
 newlines = lines[:-2] + stuff + lines[-2:]
 
