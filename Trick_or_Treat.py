@@ -6,6 +6,7 @@ import gmplot
 import random
 import numpy
 import csv
+from configure import key
 
 
 #Get list of addresses from CSV file and put into format for API
@@ -46,10 +47,10 @@ addresses = numpy.random.choice(AL,20,replace=False)
 
 
 #returns in a threeple (list of instructions, lat and long of route steps, lat and long of houses, lat and long for plotting deadends)
-def findRoute(origin, addresses):
+def findRoute(origin, addresses,key):
 
     baseURL = 'https://maps.googleapis.com/maps/api/directions/json?'
-    key = 'AIzaSyA2SPTe0Ye5isi02vn204jwhMEglGqZmtE'
+
     mode = 'walking'
 
     request = baseURL + 'origin=' + origin_return + '&destination=' + origin_return + '&waypoints=optimize:true' + setWaypoints(addresses)+'&mode='+mode+'&key='+key
@@ -122,7 +123,7 @@ def makePlot(latStep, longStep, latLeg, longLeg, latDead, longDead):
     gmap.draw("route.html")
     
 
-(a,b,c,d,e,f,g) = findRoute(origin_return,addresses)
+(a,b,c,d,e,f,g) = findRoute(origin_return,addresses,key)
 
 directions = '<br><br>'.join(a)
 
